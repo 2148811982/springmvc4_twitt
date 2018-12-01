@@ -23,5 +23,9 @@ public class TwittApplicationTests {
 	public void testAutoSave() {
 		twittService.saveAuto();
 	}
+	
+	public void test1() {
+		System.out.println("aaa");
+	}
 
 }
