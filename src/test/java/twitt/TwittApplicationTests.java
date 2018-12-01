@@ -26,6 +26,7 @@ public class TwittApplicationTests {
 	
 	public void test1() {
 		System.out.println("aaa");
+		System.out.println("bbb");
 	}
 
 }
