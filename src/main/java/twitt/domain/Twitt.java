@@ -55,4 +55,9 @@ public class Twitt {
 	public void setPublishTime(Date publishTime) {
 		this.publishTime = publishTime;
 	}
+
+	@Override
+	public String toString() {
+		return "title=" + title + ": text=" + text;
+	}
 }
