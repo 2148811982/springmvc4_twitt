@@ -26,7 +26,7 @@ public class TwUser {
 	
 	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name="user_id")
-	private List<Twitt> twittList;
+	private List<Tweet> twittList;
 	
 	public Long getId() {
 		return id;
@@ -52,10 +52,10 @@ public class TwUser {
 	public void setSex(Integer sex) {
 		this.sex = sex;
 	}
-	public List<Twitt> getTwittList() {
+	public List<Tweet> getTwittList() {
 		return twittList;
 	}
-	public void setTwittList(List<Twitt> twittList) {
+	public void setTwittList(List<Tweet> twittList) {
 		this.twittList = twittList;
 	}
 }

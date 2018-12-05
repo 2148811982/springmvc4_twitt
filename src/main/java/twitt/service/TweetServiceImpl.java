@@ -9,44 +9,44 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import twitt.dao.TwittDao;
+import twitt.dao.TweetDao;
 import twitt.domain.TwUser;
-import twitt.domain.Twitt;
-import utils.TwittUtils;
+import twitt.domain.Tweet;
+import utils.TweetUtils;
 
 @Service
-public class TwittServiceImpl implements TwittService {
+public class TweetServiceImpl implements TweetService {
 	
 	@Autowired
-	private TwittDao twittDao;
+	private TweetDao twittDao;
 
 	@Override
-	public List<Twitt> findAll() {
-		List<Twitt> twitts = twittDao.findAll();
+	public List<Tweet> findAll() {
+		List<Tweet> twitts = twittDao.findAll();
 		return twitts;
 	}
 
 	@Override
-	public Twitt findByTitle(String title) {
-		Twitt twitt = twittDao.findByTitle(title);
-		return twitt;
+	public List<Tweet> findByTitle(String title) {
+		List<Tweet> twitts = twittDao.findByTitle(title);
+		return twitts;
 	}
 
 	@Override
-	public List<Twitt> queryAfter(String timeStr) throws ParseException {
+	public List<Tweet> queryAfter(String timeStr) throws ParseException {
 		DateFormat f = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date time = f.parse(timeStr);
-		List<Twitt> twitts = twittDao.queryAfter(time);
+		List<Tweet> twitts = twittDao.queryAfter(time);
 		return twitts;
 	}
 
 	@Override
-	public Twitt save(String title, String text) {
-		Twitt t = new Twitt();
+	public Tweet save(String title, String text) {
+		Tweet t = new Tweet();
 		t.setTitle(title);
 		t.setText(text);
 		t.setPublishTime(new Date());
-		Twitt result = twittDao.save(t);
+		Tweet result = twittDao.save(t);
 		
 		return result;
 	}
@@ -54,9 +54,9 @@ public class TwittServiceImpl implements TwittService {
 	@Override
 	public void saveAuto() {
 		for(int i = 0;i < 100;i++) {
-			String title = TwittUtils.generateTitle();
-			String text = TwittUtils.generteText();
-			Twitt t = new Twitt();
+			String title = TweetUtils.generateTitle();
+			String text = TweetUtils.generteText();
+			Tweet t = new Tweet();
 			t.setTitle(title);
 			t.setText(text);
 			t.setPublishTime(new Date());

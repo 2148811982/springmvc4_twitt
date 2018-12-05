@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Twitt {
+public class Tweet {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import twitt.domain.Twitt;
+import twitt.domain.Tweet;
 
-public interface TwittDao extends JpaRepository<Twitt, Long> {
+public interface TweetDao extends JpaRepository<Tweet, Long> {
 
 //	List<Twitt> findAll();
-	Twitt findByTitle(String title);
+	List<Tweet> findByTitle(String title);
 	
 	@Query("select t from Twitt t where t.publishTime > :time")//Twitt及其字段对应的是java类及其属性
-	List<Twitt> queryAfter(@Param("time") Date time);
+	List<Tweet> queryAfter(@Param("time") Date time);
 }

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import org.junit.Test;
 
-public class TwittUtils {
+public class TweetUtils {
 	
 	private final static String titilePrefix = "t";
 	private static int i = 0;
