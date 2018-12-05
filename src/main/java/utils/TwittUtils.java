@@ -14,7 +14,7 @@ public class TwittUtils {
 	};
 
 	public static String generateTitle() {
-		String title = titilePrefix + i++;
+		String title = titilePrefix + ++i;
 		return title;
 	}
 	

@@ -2,11 +2,14 @@ package twitt.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Twitt {
@@ -23,7 +26,14 @@ public class Twitt {
 	
 	@Column(name = "publish_time")
 	private Date publishTime;
-
+	
+	/*@Column(name = "user_id")
+	private Long userId;*/
+	@ManyToOne(cascade = {CascadeType.DETACH})
+	@JoinColumn(name="user_id")
+	private TwUser user;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -54,6 +64,14 @@ public class Twitt {
 
 	public void setPublishTime(Date publishTime) {
 		this.publishTime = publishTime;
+	}
+
+	public TwUser getUser() {
+		return user;
+	}
+
+	public void setUser(TwUser user) {
+		this.user = user;
 	}
 
 	@Override
