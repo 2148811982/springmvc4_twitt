@@ -1,5 +1,6 @@
 package twitt.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,8 +13,10 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class TwUser {
+public class TwUser implements Serializable {
 
+	private static final long serialVersionUID = -1694538053312704211L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import twitt.service.TweetService;
+import twitt.service.ITweetService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TwittApplicationTests {
 	
 	@Autowired
-	private TweetService twittService;
+	private ITweetService twittService;
 
 	@Test
 	public void contextLoads() {

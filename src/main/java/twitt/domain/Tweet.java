@@ -1,5 +1,6 @@
 package twitt.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -12,7 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Tweet {
+public class Tweet implements Serializable {
+	private static final long serialVersionUID = -8543364017926735791L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +29,6 @@ public class Tweet {
 	@Column(name = "publish_time")
 	private Date publishTime;
 	
-	/*@Column(name = "user_id")
-	private Long userId;*/
 	@ManyToOne(cascade = {CascadeType.DETACH})
 	@JoinColumn(name="user_id")
 	private TwUser user;

@@ -14,6 +14,6 @@ public interface TweetDao extends JpaRepository<Tweet, Long> {
 //	List<Twitt> findAll();
 	List<Tweet> findByTitle(String title);
 	
-	@Query("select t from Twitt t where t.publishTime > :time")//Twitt及其字段对应的是java类及其属性
+	@Query("select t from Tweet t where t.publishTime > :time")//Twitt及其字段对应的是java类及其属性
 	List<Tweet> queryAfter(@Param("time") Date time);
 }

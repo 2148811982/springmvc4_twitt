@@ -12,3 +12,35 @@ spring:
   jackson:
     serialization:
       indent-output: true
+  mvc:
+    locale: zh_CN
+  servlet:
+    multipart:
+      max-file-size:
+        5KB
+      max-request-size: 
+        5MB
+  redis:
+    host: 192.168.142.131
+    port: 6379
+    password: 
+    timeout: 1000
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait:
+          -1
+  messages:
+    basename: i18n/message;i18n/welcome
+    encoding: utf-8
+logging:
+  level:
+    org: 
+      springframework: 
+        web: DEBUG
+upload: 
+  pictures: 
+    uploadPath: file:./pictures
+    anonymousPicture: classpath:/images/springboot.jpg

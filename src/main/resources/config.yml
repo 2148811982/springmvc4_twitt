@@ -1,0 +1,4 @@
+upload: 
+  pictures: 
+    uploadPath: file:./pictures
+    anonymousPicture: classpath:/images/springboot.jpg
