@@ -2,8 +2,12 @@ package twitt.confiuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
+import conditional.ConditionalScanMarker;
+import conditional.MagicBean;
+import conditional.MagicExistsCondition;
 import soundsystem.CompactDisc;
 import soundsystem.GuogeCD;
 import soundsystem.MediaPlayer;
@@ -13,7 +17,7 @@ import soundsystem.SoundSystemScanMarker;
 
 @Configuration
 //@ComponentScan(value = {"soundsystem"})
-@ComponentScan(basePackageClasses = SoundSystemScanMarker.class)
+@ComponentScan(basePackageClasses = {SoundSystemScanMarker.class, ConditionalScanMarker.class})
 public class SoundSystemConfig {
 
 	/**
@@ -36,5 +40,11 @@ public class SoundSystemConfig {
 		player.setGuoge(guoge);
 		player.setSgt(sgt);
 		return player;
+	}
+	
+	@Bean
+	@Conditional(MagicExistsCondition.class)
+	public MagicBean magicBean() {
+		return new MagicBean();
 	}
 }
