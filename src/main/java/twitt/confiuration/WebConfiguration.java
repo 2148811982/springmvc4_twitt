@@ -3,14 +3,19 @@ package twitt.confiuration;
 import java.time.LocalDate;
 import java.util.Locale;
 
-import org.apache.tomcat.util.http.fileupload.FileUploadException;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.ErrorPage;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.LocaleResolver;
@@ -23,8 +28,7 @@ import org.springframework.web.util.UrlPathHelper;
 
 import utils.ChinaLocalDateFormatter;
 
-//@Configuration
-//@EnableConfigurationProperties({PictureUploadProperties.class})
+@Configuration
 public class WebConfiguration implements WebMvcConfigurer {
 
 	@Override
@@ -71,6 +75,11 @@ public class WebConfiguration implements WebMvcConfigurer {
 		UrlPathHelper urlPathHelper = new UrlPathHelper();
 		urlPathHelper.setRemoveSemicolonContent(false);
 		configurer.setUrlPathHelper(urlPathHelper);
+	}
+	
+	@Bean
+	public static PropertyPlaceholderConfigurer propertyPlaceholderConfigurer() {
+		return new PropertyPlaceholderConfigurer();
 	}
 	
 }

@@ -41,7 +41,7 @@ logging:
       springframework: 
         web: DEBUG
         
-upload: 
-  pictures: 
-    uploadPath: file:./pictures
-    anonymousPicture: classpath:/images/springboot.jpg
+#upload: 
+#  pictures: 
+#    uploadPath: file:./pictures
+#    anonymousPicture: classpath:/images/springboot.jpg

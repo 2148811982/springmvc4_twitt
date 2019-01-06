@@ -1,9 +1,13 @@
 package twitt.confiuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 
+@Configuration
+@PropertySource("classpath:config.properties")
 @ConfigurationProperties(prefix = "upload.pictures")
 public class PictureUploadProperties {
 

@@ -47,9 +47,9 @@ public class PictureUploadController {
 	private final Resource anonymousPicture;
 	
 	@Autowired
-	public PictureUploadController(PictureUploadProperties pro, MessageSource messageSource) {
-		pictureDir = pro.getUploadPath();
-		anonymousPicture = pro.getAnonymousPicture();
+	public PictureUploadController(PictureUploadProperties pictureUploadProperties, MessageSource messageSource) {
+		pictureDir = pictureUploadProperties.getUploadPath();
+		anonymousPicture = pictureUploadProperties.getAnonymousPicture();
 		this.messageSource = messageSource;
 	}
 
